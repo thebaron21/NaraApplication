@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myapp3/config/LocaleLang.dart';
 import 'package:myapp3/config/pallete.dart';
-import 'package:myapp3/core/bloc/auth/authenticationo_bloc.dart';
 import 'package:myapp3/core/bloc/rxdartBloc/profile_rxdart_bloc.dart';
 import 'package:myapp3/core/controller/control.dart';
 import 'package:myapp3/core/model/user_model.dart';
 import 'package:myapp3/core/repoitorites/user_repoitory.dart';
 import 'package:myapp3/core/response/authentication_reponse.dart';
 import 'package:myapp3/main.dart';
-import 'package:myapp3/views/pages/drawer/about_us_page.dart';
-import 'package:myapp3/views/pages/drawer/call_us_page.dart';
-import 'package:myapp3/views/pages/drawer/quation_page.dart';
-import 'package:myapp3/views/pages/drawer/order_page.dart';
-import 'package:myapp3/views/pages/favorities/favorities_page.dart';
 import 'package:myapp3/views/widgets/drawer_app.dart';
 import 'package:myapp3/views/widgets/network_widget.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../nara_app.dart';
 import 'edit_profile.dart';
@@ -185,13 +177,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             if (lang == "en") {
                               obj.setString("lang", "ar");
                               Getx.of(context).toGetNotBack(MyApp(
-                                token: token,
                                 locale: Locale('${lang}', ''),
                               ));
                             } else if (lang == "ar") {
                               obj.setString("lang", "en");
                               Getx.of(context).toGetNotBack(MyApp(
-                                token: token,
                                 locale: Locale('${lang}', ''),
                               ));
                             }

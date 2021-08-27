@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:myapp3/config/boxs.dart';
-import 'package:myapp3/config/pallete.dart';
-import 'package:myapp3/core/controller/cart_shopping.dart';
-import 'package:myapp3/core/model/cart_model.dart';
-import 'core/bloc/auth/authenticationo_bloc.dart';
-import 'core/bloc/categories/categories_bloc.dart';
-import 'core/controller/favorites_product.dart';
-import 'core/model/product_model.dart';
-import 'views/nara_app.dart';
-import 'package:provider/provider.dart';
-import 'config/LocaleLang.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart' as p;
+
+import 'src/view/app_nara.dart';
+import 'src/logic/config/LocaleLang.dart';
+import 'src/logic/config/end_boxs.dart';
+import 'src/logic/config/pallete.dart';
+import 'src/logic/model/cart_model.dart';
+import 'src/logic/model/product_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,37 +18,26 @@ void main() async {
   Hive.registerAdapter(ProductModelAdapter());
   Hive.registerAdapter(CartItemModelAdapter());
 
-  await Hive.openBox(Boxs.NaraApp);
-  await Hive.openBox(Boxs.CartItem);
+  await Hive.openBox(EndBoxs.NaraApp);
+  // await Hive.openBox(EndBoxs.CartItem);
 
-  var initNaraApp = Hive.box(Boxs.NaraApp);
-  String token = initNaraApp.get("token");
+  var initNaraApp = Hive.box(EndBoxs.NaraApp);
+
   String lang = initNaraApp.get("lang");
   Locale _locale = Locale('$lang', '');
 
   runApp(
-    ChangeNotifierProvider(
-      create: (BuildContext context) => FavoritiesProduct(),
-      child: ChangeNotifierProvider(
-        create: (BuildContext context) => Cart(),
-        child: BlocProvider(
-          create: (context) => CategoriesBloc(),
-          child: MyApp(
-            token: token,
-            locale: _locale,
-          ),
-        ),
-      ),
+    MyApp(
+      locale: _locale,
     ),
   );
 }
 
 // ignore: must_be_immutable
 class MyApp extends StatefulWidget {
-  String token;
   Locale locale;
 
-  MyApp({Key key, this.locale, this.token}) : super(key: key);
+  MyApp({Key key, this.locale}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -101,16 +84,14 @@ class _MyAppState extends State<MyApp> {
       ),
       color: kcPrimaryColor,
       home: FutureBuilder(
-        future: Hive.openBox(Boxs.NaraApp),
+        future: Hive.openBox(EndBoxs.NaraApp),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return FutureBuilder(
-              future: Hive.openBox(Boxs.FavoritiesBox),
+              future: Hive.openBox(EndBoxs.FavoritiesBox),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return NaraApp(
-                    token: widget.token,
-                  );
+                  return AppNara();
                 } else {
                   return Scaffold();
                 }
@@ -200,12 +181,12 @@ class _MyAppState extends State<MyApp> {
     //           home: snapshot.connectionState == ConnectionState.waiting
     //               ? Splash()
     //               : FutureBuilder(
-    //                   future: Hive.openBox(Boxs.NaraApp),
+    //                   future: Hive.openBox(EndBoxs.NaraApp),
     //                   // ignore: missing_return
     //                   builder: (context, snapshot) {
     //                     if (snapshot.hasData) {
     //                       return FutureBuilder(
-    //                         future: Hive.openBox(Boxs.FavoritiesBox),
+    //                         future: Hive.openBox(EndBoxs.FavoritiesBox),
     //                         builder: (context, snapshot) {
     //                           if (snapshot.hasData) {
     //                             return NaraApp(

@@ -43,7 +43,7 @@ dependencies:
   rxdart:
   flutter_otp_text_field: 
   page_indicator: 
-  flutter_facebook_login: 
+  # flutter_facebook_login: 
   flutter_facebook_auth: ^3.5.0
   flutter_launcher_icons: ^0.9.1
   hive: ^2.0.4

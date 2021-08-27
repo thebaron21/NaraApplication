@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp3/src/config/end_boxs.dart';
-import 'package:myapp3/src/config/end_point.dart';
-import 'package:myapp3/src/function/res_function.dart';
+import '../config/end_boxs.dart';
+import '../config/end_point.dart';
+import '../function/res_function.dart';
 
 class ResOrderCart {
   static String _token = Hive.box(EndBoxs.NaraApp).get("token");

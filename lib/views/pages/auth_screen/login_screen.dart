@@ -15,7 +15,6 @@ import 'forgot_password.dart';
 import 'register_screen.dart';
 import 'widgets/box_button.dart';
 import 'widgets/box_input_field.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -41,7 +40,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   bool _loading = false;
-  static final FacebookLogin facebookSignIn = new FacebookLogin();
 
   @override
   Widget build(BuildContext context) {

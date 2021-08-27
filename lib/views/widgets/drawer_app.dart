@@ -66,13 +66,11 @@ buildCustome(context) {
                     if (lang == "en") {
                       await hiveBox.boxNaraApp.put("lang", "ar");
                       Getx.of(context).toGetNotBack(MyApp(
-                        token: token,
                         locale: Locale('ar', ''),
                       ));
                     } else if (lang == "ar") {
                       await hiveBox.boxNaraApp.put("lang", "en");
                       Getx.of(context).toGetNotBack(MyApp(
-                        token: token,
                         locale: Locale('en', ''),
                       ));
                     }

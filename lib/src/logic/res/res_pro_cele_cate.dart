@@ -1,5 +1,5 @@
-import 'package:myapp3/src/config/end_point.dart';
-import 'package:myapp3/src/function/res_function.dart';
+import '../config/end_point.dart';
+import '../function/res_function.dart';
 
 class ResCategoryProductCelebrities {
   static Future categories({String name}) async {
