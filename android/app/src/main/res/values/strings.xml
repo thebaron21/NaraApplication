@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">app news</string>
+    <string name="facebook_app_id">265299484695117</string>
+    <string name="fb_login_protocol_scheme">fb445083203594109</string>
+
+</resources>

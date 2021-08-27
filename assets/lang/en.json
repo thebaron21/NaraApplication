@@ -1,0 +1,116 @@
+{
+    "brand" : "Brand",
+    "home" : "Home",
+    
+    "categories" : "Categories",
+    "my_bag"  : "My Bag",
+
+    "top_categories" : "Top Categories",
+    "top_celebrities" : "Top Celebrities",
+    "top_products" : "Top Producsts",
+    "view_all" : "View All",
+
+    "profile" : "Profile",
+    "menu_favorite":"Meun Favorite",
+    "about_us":"About us",
+    "language" : "Language",
+
+    "login_title" : "Login",
+    "login_btn" : "LOGIN",
+    "login_email" : "email",
+    "login_passw" : "Passsword",
+    "login_forgot": "Forgot Password ?",
+    "login_dont_have" : "Don't have Account yet ? Create one !",
+
+    "view" : "View",
+
+    "filtter":"Filtter",
+    "sort":"Sort",
+
+    "all_products" : "All Products",
+    "discover_now" : "DISCOVER NOW",
+    "shop_now" : "SHOP NOW",
+
+    "not_products":"Not Products",
+
+    "favorities" : "Favorities",
+    "total_price" : "Total Price",
+
+    "add_details_payment" : "Add Details Payment",
+    "select_type_payment" : "Select Payment Type",
+    "credit_card" : "Credit Card",
+    "payment_to_recive" : "Cash",
+    "bank" : "Bank",
+    "price" : "Price",
+    "delivery" : "Delivery",
+    "add_details_order" : "Add Details Order",
+    "nara" : "Nara",
+    "username": "Username",
+    "phone_number": "Phone Number",
+    "card_number" : "Card ID",
+    "zip_code" : "Zip Code", 
+    "city" : "City",
+    "address" : "Address",
+    
+    "details_address" : "Details Address",
+    "next": "Next",
+    "add_address" : "Add Address",
+    "note": "Note",
+    "floor_no" : "Floor No",
+    "flat_no" : "Flat No",
+    "error" : "Error",
+    "sign_in_with_facebook" :"Sign In With Facebook",
+    "sign_in_with_google": "Sign In With Google",
+
+    "sign_up_with_facebook" : "Sign Up With Facebook",
+    "sign_up_with_google": "Sign Up With Google",
+
+    "register" : "Register",
+
+    "state" : "State",
+    "street" : "Street",
+
+    "ok" : "Ok",
+    "change_lang" : "عربية",
+
+    "logout" : "Logout",
+    "welcome" : "Welcome",
+    "my_account" : " My Account",
+
+    "change_password" : "Change Password",
+    "old_password" : "Old Password",
+    "new_password" : "New Password",
+    "new_password_confirmation" : "New Password Confiramtion",
+    "password_confirmation" : "Password Confiramtion",
+    "sign_up" : "Sign Up",
+
+    "done" : "Done Changed",
+    "success" : "Successfully",
+    "okey" : "Ok",
+
+    "phoneNumber" : "Phone Number",
+    "email" : "Email",
+    "edit" : "Edit",
+
+    "info_account" : "Information an Account",
+
+    "forgot_you_password" : "forgot you Password ?",
+    "content_page_forgot" : "To rest your password enter the email address you use to SignIn to Nara",
+    "already_have" : "!Already have an account ? Login",
+
+    "reset_pass" : "Reset Password",
+
+    "favoritie_is_empty" : "Favorities is Empty",
+
+    "boutiqaat" : "Boutiqaat",
+    "celebrities" : "Celebrities",
+    "brands" : "Brands",
+    "shop_by_category" : "Shop by Category",
+    "watchs" : "TV",
+    
+    "my_accountt"  : "Account",
+    "call_us" : "Contact Us",    
+    "my_order" : "My Order",
+    "quatioins":"FAQ",
+    "chat_with_us":"Chat with Us"
+}

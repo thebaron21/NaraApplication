@@ -1,0 +1,121 @@
+{
+    "brand" : "الماركات",
+    "home" : "الصفحة الرئسية",
+    "categories" : "الأقسام",
+    "my_bag"  : "الحقيبة",
+    
+    "top_categories" : "أفضل الاقسام",
+    "top_celebrities" : " افضل المشاهير ",
+    "top_products" : "أفضل المنتجات",
+    "view_all" : "عرض الكل",
+
+    "profile" : "الملف الشخصة",
+    
+    "menu_favorite":"قائمة المفضل",
+    "about_us":"من نحن",
+    "language" : "اللغة",
+
+    
+    "login_title" : "تسجيل دخول",
+    "login_email" : "البريد الإلكتروني",
+    "login_btn" : "دخول",
+    "login_passw" : "كلمة المرور",
+    "login_forgot": "هل نسيت كلمة المرور ؟ ",
+    "login_dont_have" : "ليس لدي حساب ! إنشاء حساب جديد",
+
+    "view" : "عرض",
+
+    "all_products" : "جميع المنتجات",
+    "discover_now" : "إكتشاف الان",
+    "shop_now" : "تسوق الان",
+
+    "not_products":"لا يوجد عناصر ضمن قائمة الامفضل",
+    "favorities" : "المفضل",
+
+    "filtter":"فلتر",
+    "sort":"ترتيب",
+    "total_price" : "مجموع السعر",
+    "add_details_payment" : "إضافة تفاصيل الدفع",
+    "select_type_payment" : "إختار وسيلة الدفع",
+    "add_details_order" : " إضافة تفاصيل الشحنة",
+    "credit_card" : "البطاقة",
+    "payment_to_recive" : "دفع عند الإستلام",
+    "bank" : "دفع عبر البنك",
+    "price" : "السعر",
+    "delivery" : "قيمة التوصيل",
+
+
+    "username": "الاسم المستخدم",
+    "phone_number": "رقم  الهاتف",
+    "card_number" : "رقم البطاقة",
+    "zip_code" : "Zip Code", 
+    "city" : "المدنية",
+    "address" : "العنوان",
+
+    "details_address" : "تفاصيل العنوان",
+    "next" : "متابع",
+    "add_address" : "إضافة عنوان",
+    "note" : "ملاحظة",
+    "floor_no" : "Floor No",
+    "flat_no": "Flat No",
+    "error" : "خطأ",
+    "sign_in_with_facebook" :"تسجيل دخول عبر الفيس بوك",
+    "sign_in_with_google" : "تسجيل دخول عبر قوقل",
+
+    "sign_up_with_facebook" : "تسجيل عبر الفيس بوك",
+    "sign_up_with_google" : "تسجيل عبر قوقل",
+
+   "register": "تسجيل",
+
+   "state" : "الدولة",
+   "street" : "الشارع",
+
+   "ok" : "موافق",
+
+   "change_lang" : "English",
+
+   "logout" : "خروج",
+    "welcome" : "مرحبا",
+    "my_account" : " حسابي",
+
+    "change_password" : "تغيير كلمة مرور",
+    "old_password" : "كلمة المرور القديمة",
+    "new_password" : "كلمة السر الجديدة",
+    "new_password_confirmation" : "تأكيد كلمة المرور الجديدة",
+    "password_confirmation" : "تأكيد كلمة المرور",
+    "sign_up" : "إنشاء حساب",
+
+
+    "done" : "تم التعديل",
+    "success" : "نجاح",
+    "okey" : "تم",
+
+
+    "email" : "البريد الإلكتروني",
+    "phoneNumber" : "رقم الهاتف",
+    "edit" : "تعديل",
+
+    "info_account" : "معلومات الحساب",
+
+    "forgot_you_password" : " هل نسيت كلمة المرور ",
+
+    "content_page_forgot" : "To reset your password enter the email address you use to SignIn to Nara",
+
+    "already_have" : "لدي حساب",
+
+    "reset_pass" : "تغير كلمة المرور",
+
+    "favoritie_is_empty" : "لا توجد عناصر في قائمة المفضل",
+    "nara" : "نارا",
+    "boutiqaat" : "بوتيكات",
+    "celebrities" : "المشاهير",
+    "brands" : "الماركات",
+    "watchs" : "بوتيكات TV",
+    "shop_by_category" : "الأقسام",
+    "my_accountt"  : "حسابي",
+    "call_us" : "تواصل معنا",
+    "my_order" : "طلباتي",
+    "quatioins":"الأسئلة الشائعة",
+    "chat_with_us":"دردش معنا"
+
+}
