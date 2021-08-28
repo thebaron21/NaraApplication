@@ -34,15 +34,16 @@ class ResOrderCart {
   static Future setPayment({addressId, paymentType}) async {
     try {
       var data = await ResFunction.postRes(
-          url: EndPoint.checkout,
-          headers: ResFunction.withToken(_token),
-          body: {
-            "address_id": addressId,
-            "payment_type": paymentType,
-          });
+        url: EndPoint.checkout,
+        headers: ResFunction.withToken(_token),
+        body: {
+          "address_id": addressId,
+          "payment_type": paymentType,
+        },
+      );
       return data;
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
+import 'package:myapp3/src/view/widgets/widget_product._details.dart';
 import 'package:myapp3/src/view/widgets/widget_product.dart';
 
 class ModelListGridProduct {
@@ -13,7 +15,9 @@ class ModelListGridProduct {
         itemBuilder: (BuildContext context, int index) {
           return WidgetProduct(
             model: products[index],
-            onBuy: () {},
+            onBuy: () {
+              RouterF.of(context).push( () => ProductDetailsView(model: products[index],) );
+            },
           );
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -42,7 +46,9 @@ class ModelListGridProduct {
         itemBuilder: (BuildContext context, int index) {
           return WidgetProduct(
             model: products[index],
-            onBuy: () {},
+            onBuy: () {
+              RouterF.of(context).push( () => ProductDetailsView(model: products[index],) );
+            },
           );
         },
       ),

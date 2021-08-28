@@ -5,6 +5,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
+import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
 
 import 'widgets/widget_categories.dart';
 
@@ -67,7 +69,9 @@ class _CategoriesViewState extends State<CategoriesView> {
               );
             },
           ),
-          onPressed: () {},
+          onPressed: () {
+             RouterF.of(context).push(() => FavoritiesView());
+          },
         ),
         searchBar.getSearchAction(context),
       ],

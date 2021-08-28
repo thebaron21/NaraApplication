@@ -1,8 +1,7 @@
 class CartFunction {
-  final datas;
-  CartFunction(this.datas);
 
-  Map<String, dynamic> init() {
+
+  static Map<String, dynamic> init(datas) {
     List<Map<String, dynamic>> jsons = [];
     Map<String, dynamic> map = {"cart": jsons};
 

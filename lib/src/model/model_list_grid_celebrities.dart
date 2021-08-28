@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
+import 'package:myapp3/src/logic/model/model_categories.dart';
 import 'package:myapp3/src/logic/model/model_celebrities.dart';
+import 'package:myapp3/src/view/pages/categories/categories_product_view.dart';
 import 'package:myapp3/src/view/widgets/widget_network_image.dart';
 
 class ModelListGridCelebrities {
@@ -28,7 +31,13 @@ class ModelListGridCelebrities {
 
   static Widget _celebrity(Size size, ModelCelebrity data, context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        RouterF.of(context).push(
+          () => CategoriesProductView(
+            category: ModelCategory(id: data.id, image: data.image),
+          ),
+        );
+      },
       child: Container(
         width: size.width * 0.35,
         margin: EdgeInsets.all(5),

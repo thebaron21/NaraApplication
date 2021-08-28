@@ -5,7 +5,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/view/pages/brand/widgets/widget_brands.dart';
+import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
 import 'package:myapp3/src/view/widgets/widget_appbar.dart';
 
 class BrandView extends StatefulWidget {
@@ -66,7 +68,9 @@ class _BrandViewState extends State<BrandView> {
               );
             },
           ),
-          onPressed: () {},
+          onPressed: () {
+             RouterF.of(context).push(() => FavoritiesView());
+          },
         ),
         searchBar.getSearchAction(context),
       ],

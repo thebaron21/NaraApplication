@@ -1,10 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:myapp3/src/logic/handling/handle_auth.dart';
 import '../config/end_boxs.dart';
 import '../config/end_point.dart';
 import '../function/res_function.dart';
 
 class ResAuth {
-  static String _token = Hive.box(EndBoxs.NaraApp).get("token"); 
+  static String _token = Hive.box(EndBoxs.NaraApp).get("token");
 
   static Future login({String email, String password}) async {
     try {
@@ -16,7 +18,7 @@ class ResAuth {
         },
         headers: ResFunction.withOutToken(),
       );
-      return data;
+      return HandleAuth.login(data);
     } catch (e) {
       return e;
     }
@@ -34,9 +36,15 @@ class ResAuth {
         },
         headers: ResFunction.withOutToken(),
       );
-      return data;
+
+      return HandleAuth.register(data);
     } catch (e) {
-      return e;
+      if (e is DioError) {
+        // print(e);
+        return HandleAuth.register(e.response.data);
+      } else {
+        return e;
+      }
     }
   }
 
@@ -96,6 +104,7 @@ class ResAuth {
         url: EndPoint.getProfileUrl,
         headers: ResFunction.withToken(_token),
       );
+      print(_token);
       return data;
     } catch (e) {
       return e;
@@ -103,6 +112,7 @@ class ResAuth {
   }
 
   static Future editP({String newPass, String oldPass}) async {
+    print(_token);
     try {
       var data = await ResFunction.postRes(
         url: EndPoint.changePassUrl,
@@ -113,6 +123,7 @@ class ResAuth {
         },
         headers: ResFunction.withToken(_token),
       );
+      return data;
     } catch (e) {
       return e;
     }

@@ -23,7 +23,7 @@ class ModelCategoriesList {
           size: size,
           onTap: () {
             RouterF.of(context)
-                .push(() => CategoriesProductView(category: categories[index]));
+                .push(() => CategoriesProductView(category: categories[index] ));
           },
         );
       },

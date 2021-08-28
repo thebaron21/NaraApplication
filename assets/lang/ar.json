@@ -37,7 +37,7 @@
     "total_price" : "مجموع السعر",
     "add_details_payment" : "إضافة تفاصيل الدفع",
     "select_type_payment" : "إختار وسيلة الدفع",
-    "add_details_order" : " إضافة تفاصيل الشحنة",
+    "add_details_order" : "إضافة إلى السلة",
     "credit_card" : "البطاقة",
     "payment_to_recive" : "دفع عند الإستلام",
     "bank" : "دفع عبر البنك",

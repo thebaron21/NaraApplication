@@ -1,5 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
+import 'package:myapp3/src/view/pages/brand/brand_product_view.dart';
 import '../logic/model/model_brand.dart';
 import '../view/widgets/widget_network_image.dart';
 
@@ -65,7 +67,11 @@ class ModelListBarnd {
         borderRadius: BorderRadius.circular(4),
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          RouterF.of(context).push(() => BrandProductView(
+                brand: brand,
+              ));
+        },
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Row(

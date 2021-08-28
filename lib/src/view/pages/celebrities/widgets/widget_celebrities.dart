@@ -6,7 +6,7 @@ import 'package:myapp3/src/view/widgets/widget_future.dart';
 class WidgetCelebritiesView {
   static Widget celebritiesFuture(Size size, superReload, String name) {
     return StreamBuilder(
-      stream: ResCategoryProductCelebrities.celebrities(name: name).asStream(),
+      stream: ResCategoryProductCelebrities.celebrities2(name: name).asStream(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.hasData) {
           return ModelListGridCelebrities.grid(size, snapshot.data.celebrities);

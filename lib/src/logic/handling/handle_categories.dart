@@ -19,4 +19,8 @@ class HeadleCategoriesProductBrandCelebrities {
   static RepositoryCelebrities celebrities(var data) {
     return RepositoryCelebrities.fromMap(data);
   }
+
+  static RepositoryProduct productsBrand(var data) {
+    return RepositoryProduct.from(data);
+  }
 }

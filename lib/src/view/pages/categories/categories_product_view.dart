@@ -5,8 +5,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/logic/model/model_categories.dart';
-
+import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
 import 'widgets/widget_categories.dart';
 
 class CategoriesProductView extends StatefulWidget {
@@ -71,7 +72,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
               );
             },
           ),
-          onPressed: () {},
+          onPressed: () {
+            RouterF.of(context).push(() => FavoritiesView());
+          },
         ),
         searchBar.getSearchAction(context),
       ],
@@ -87,7 +90,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
         child: Column(
           children: [
             WidgetCategoryView.producCategory(
-                widget.category.id, () => setState(() {}), size, name),
+                widget.category.id.toString(), () => setState(() {}), size, name),
           ],
         ),
       ),

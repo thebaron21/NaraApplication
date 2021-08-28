@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
+import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
 
 Widget appBar(
     {bool centerTitle = false,
@@ -47,7 +49,9 @@ Widget appBar(
             );
           },
         ),
-        onPressed: () {},
+        onPressed: () {
+          RouterF.of(context).push(() => FavoritiesView());
+        },
       ),
       isCart == false
           ? IconButton(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp3/src/view/pages/home/widgets/widget_slider.dart';
 import 'package:myapp3/src/view/pages/home/widgets/widget_top_brand.dart';
 import 'package:myapp3/src/view/widgets/widget_appbar.dart';
+import 'package:myapp3/src/view/widgets/widget_drawer.dart';
 
 import 'widgets/widget_celebrities.dart';
 import 'widgets/widget_product.dart';
@@ -25,11 +26,12 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar:  appBar(
+      drawer: WidgetDrawer.drawer(context),
+      appBar: appBar(
         centerTitle: true,
         isLogo: true,
         context: context,
-        isCart: true,
+        isCart: false,
       ),
       body: SingleChildScrollView(
         child: Column(
