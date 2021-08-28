@@ -5,19 +5,23 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
-import 'package:myapp3/src/view/pages/brand/widgets/widget_brands.dart';
-import 'package:myapp3/src/view/widgets/widget_appbar.dart';
+import 'package:myapp3/src/logic/model/model_categories.dart';
 
-class BrandView extends StatefulWidget {
+import 'widgets/widget_categories.dart';
+
+class CategoriesProductView extends StatefulWidget {
+  final ModelCategory category;
+
+  const CategoriesProductView({Key key, this.category}) : super(key: key);
   @override
-  _BrandViewState createState() => _BrandViewState();
+  _CategoriesProductViewState createState() => _CategoriesProductViewState();
 }
 
-class _BrandViewState extends State<BrandView> {
+class _CategoriesProductViewState extends State<CategoriesProductView> {
   SearchBar searchBar;
   String name;
 
-  _BrandViewState() {
+  _CategoriesProductViewState() {
     searchBar = SearchBar(
       setState: setState,
       inBar: false,
@@ -36,6 +40,7 @@ class _BrandViewState extends State<BrandView> {
       buildDefaultAppBar: buildAppBar,
     );
   }
+
   AppBar buildAppBar(context) {
     return AppBar(
       iconTheme: IconThemeData(color: Colors.black),
@@ -78,7 +83,14 @@ class _BrandViewState extends State<BrandView> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: searchBar.build(context),
-      body: WidgetBrandView.brandsFuture(size, () => setState(() {}), name),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            WidgetCategoryView.producCategory(
+                widget.category.id, () => setState(() {}), size, name),
+          ],
+        ),
+      ),
     );
   }
 }

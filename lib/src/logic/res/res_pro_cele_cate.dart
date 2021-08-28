@@ -64,8 +64,9 @@ class ResCategoryProductCelebrities {
     }
   }
 
-  static Future products({String name}) async {
+  static Future products({String name,String categoryId}) async {
     try {
+      if(categoryId == null){        
       if (name == null) {
         var data = await ResFunction.getRes(
           url: EndPoint.productsUrl,
@@ -75,6 +76,13 @@ class ResCategoryProductCelebrities {
       } else {
         var data = await ResFunction.getRes(
           url: EndPoint.productsUrl + "?name=$name",
+          headers: ResFunction.withOutToken(),
+        );
+        return HeadleCategoriesProductBrandCelebrities.products(data);
+      }
+      }else{
+        var data = await ResFunction.getRes(
+          url: EndPoint.productsUrl + "?category_id=$categoryId",
           headers: ResFunction.withOutToken(),
         );
         return HeadleCategoriesProductBrandCelebrities.products(data);

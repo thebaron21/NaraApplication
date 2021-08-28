@@ -17,8 +17,8 @@ class ModelListGridProduct {
           );
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 3 / 4,
+          crossAxisCount: 2,
+          childAspectRatio: 3 / 5,
           mainAxisSpacing: 5,
         ),
       ),

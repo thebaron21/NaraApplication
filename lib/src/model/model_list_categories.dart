@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
+import 'package:myapp3/src/view/pages/categories/categories_product_view.dart';
 import '../logic/config/end_colors.dart';
 import '../logic/model/model_categories.dart';
 import '../view/widgets/widget_network_image.dart';
@@ -15,7 +17,15 @@ class ModelCategoriesList {
     return ListView.builder(
       itemCount: categories.length,
       itemBuilder: (context, index) {
-        return category(context, categories[index], size: size, onTap: () {});
+        return category(
+          context,
+          categories[index],
+          size: size,
+          onTap: () {
+            RouterF.of(context)
+                .push(() => CategoriesProductView(category: categories[index]));
+          },
+        );
       },
     );
   }
