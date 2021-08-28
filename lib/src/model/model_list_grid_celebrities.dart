@@ -3,14 +3,17 @@ import 'package:myapp3/src/logic/model/model_celebrities.dart';
 import 'package:myapp3/src/view/widgets/widget_network_image.dart';
 
 class ModelListGridCelebrities {
-  static Widget grid(Size size, List celebrities) {
+  static Widget grid(Size size, List celebrities, {is6 = false}) {
+    int len = celebrities.length;
+    if (celebrities.length >= 6) len = 6;
+
     return Container(
       // height: size.height * 0.6,
       width: size.width,
       child: GridView.builder(
         physics: ScrollPhysics(),
         shrinkWrap: true,
-        itemCount: celebrities.length,
+        itemCount: is6 == true ? len : celebrities.length,
         itemBuilder: (BuildContext context, int index) {
           return _celebrity(size, celebrities[index], context);
         },

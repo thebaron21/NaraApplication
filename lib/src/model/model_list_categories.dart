@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp3/src/logic/config/LocaleLang.dart';
+import 'package:myapp3/src/logic/config/pallete.dart';
 import '../logic/config/end_colors.dart';
 import '../logic/model/model_categories.dart';
 import '../view/widgets/widget_network_image.dart';
@@ -67,6 +71,93 @@ class ModelCategoriesList {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  static Widget topCategory(Size size, List categories, context) {
+    Random _random = Random();
+    return categoryTop(
+        size, categories[_random.nextInt(categories.length)], context);
+  }
+
+  static Widget categoryTop(size, ModelCategory category, context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      width: size.width,
+      height: size.height * 0.43,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(
+            category.image,
+          ),
+        ),
+      ),
+      child: Column(
+        children: [
+          SizedBox(height: 70),
+          Center(
+            child: BorderedText(
+              strokeWidth: 1.5,
+              child: Text(
+                category.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            width: size.width * 0.9,
+            height: size.height * 0.16,
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  blurRadius: 10,
+                ),
+              ],
+              color: Colors.white,
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 40,
+                  width: size.width * 0.5,
+                  child: Text(
+                    category.description,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: kcPrimaryColor,
+                    child: Text(
+                      AppLocale.of(context).getTranslated("shop_now"),
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

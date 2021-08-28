@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
       ),
       color: kcPrimaryColor,
       home: FutureBuilder(
-        future: Hive.openBox(EndBoxs.NaraApp),
+        future: Hive.openBox(EndBoxs.CartItem),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return FutureBuilder(

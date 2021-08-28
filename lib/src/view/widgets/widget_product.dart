@@ -7,15 +7,9 @@ import '../../logic/model/product_model.dart';
 import 'widget_network_image.dart';
 
 class WidgetProduct extends StatefulWidget {
-
   final Function onBuy;
   final ProductModel model;
-  String image;
-  WidgetProduct(
-      {Key key,
-      @required this.onBuy,
-      this.model})
-      : super(key: key);
+  WidgetProduct({Key key, @required this.onBuy, this.model}) : super(key: key);
 
   @override
   _WidgetProductState createState() => _WidgetProductState();
@@ -32,7 +26,8 @@ class _WidgetProductState extends State<WidgetProduct> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     String desc = widget.model.desc;
-    if (widget.model.desc.length >= 60) desc = widget.model.desc.substring(0, 60) + " ...";
+    if (widget.model.desc.length >= 60)
+      desc = widget.model.desc.substring(0, 60) + " ...";
     return Container(
       margin: EdgeInsets.all(2),
       width: size.width * 0.49,
@@ -51,7 +46,7 @@ class _WidgetProductState extends State<WidgetProduct> {
             height: size.height * 0.25,
             width: size.width * 0.49,
             child: WidgetNetWork(
-              image: widget.image,
+              image: widget.model.image,
             ),
           ),
           Padding(

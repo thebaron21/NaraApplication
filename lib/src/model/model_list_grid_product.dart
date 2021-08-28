@@ -27,13 +27,18 @@ class ModelListGridProduct {
   }
 
   static Widget list(Size size, List products, bool ishorizontal) {
+    int len = 0;
+    if (products.length > 30)
+      len = 30;
+    else
+      len = products.length;
     return Container(
       width: size.width,
       height: size.height * 0.5,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: ishorizontal == true ? Axis.horizontal : Axis.vertical,
-        itemCount: products.length,
+        itemCount: len,
         itemBuilder: (BuildContext context, int index) {
           return WidgetProduct(
             model: products[index],
