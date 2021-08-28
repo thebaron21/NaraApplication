@@ -19,10 +19,9 @@ class GetOrderModel {
         paymenyStatus = json["payment_status"],
         status = json["status"];
 
-  toMap() => {
+  Map<String, dynamic> toMap() => {
         "id": id,
         "price": price,
-        "address": address.toMap(),
         "delivery_fees": deliveryFees,
         "payment_type": paymentType,
         "paymeny_status": paymenyStatus,
@@ -48,7 +47,7 @@ class GetAddress {
         city = json["city"],
         state = json["state"],
         street = json["street"];
-  toMap() => {
+  Map<String, dynamic> toMap() => {
         "id": id,
         "name": name,
         "address": address,

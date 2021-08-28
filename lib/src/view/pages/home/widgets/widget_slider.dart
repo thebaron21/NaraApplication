@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/logic/res/res_pro_cele_cate.dart';
+import 'package:myapp3/src/view/pages/categories/categories_product_view.dart';
 import 'package:myapp3/src/view/widgets/widget_future.dart';
 import 'package:myapp3/src/view/widgets/widget_network_image.dart';
 import 'package:page_indicator/page_indicator.dart';
@@ -15,7 +17,11 @@ class SliderHome {
         } else if (snapshot.hasError) {
           return WidgetFuture.error(context, superReload);
         } else {
-          return WidgetFuture.loading();
+          return Container(
+            width: size.width,
+            height: size.height * 0.34,
+            child: WidgetFuture.loading(),
+          );
         }
       },
     );
@@ -38,7 +44,10 @@ class SliderHome {
           itemCount: categories.length,
           itemBuilder: (context, int index) {
             return InkWell(
-              onTap: () {},
+              onTap: () {
+                RouterF.of(context).push(
+                    () => CategoriesProductView(category: categories[index]));
+              },
               child: Container(
                 width: size.width,
                 height: size.height * 0.34,

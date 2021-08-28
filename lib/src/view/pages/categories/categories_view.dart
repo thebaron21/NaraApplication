@@ -7,6 +7,7 @@ import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
 import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
+import 'package:myapp3/src/view/widgets/widget_drawer.dart';
 
 import 'widgets/widget_categories.dart';
 
@@ -82,6 +83,7 @@ class _CategoriesViewState extends State<CategoriesView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+       drawer: WidgetDrawer.drawer(context),
       appBar: searchBar.build(context),
       body: WidgetCategoryView.categories(size, () => setState(() {}), name),
     );

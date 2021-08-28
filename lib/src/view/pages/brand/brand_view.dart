@@ -9,6 +9,7 @@ import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/view/pages/brand/widgets/widget_brands.dart';
 import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
 import 'package:myapp3/src/view/widgets/widget_appbar.dart';
+import 'package:myapp3/src/view/widgets/widget_drawer.dart';
 
 class BrandView extends StatefulWidget {
   @override
@@ -81,6 +82,7 @@ class _BrandViewState extends State<BrandView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+       drawer: WidgetDrawer.drawer(context),
       appBar: searchBar.build(context),
       body: WidgetBrandView.brandsFuture(size, () => setState(() {}), name),
     );

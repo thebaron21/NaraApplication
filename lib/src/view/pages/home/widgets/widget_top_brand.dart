@@ -9,11 +9,15 @@ class TopBrandHome {
       stream: ResCategoryProductCelebrities.brands().asStream(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.hasData) {
-          return ModelListBarnd.twoBarnd(snapshot.data.brands, size);
+          return ModelListBarnd.twoBarnd(snapshot.data.brands, size,context);
         } else if (snapshot.hasError) {
           return WidgetFuture.error(context, superReload);
         } else {
-          return WidgetFuture.loading();
+          return Container(
+            width: size.width * 0.9,
+            height: size.height * 0.07,
+            child: WidgetFuture.loading(),
+          );
         }
       },
     );

@@ -53,38 +53,30 @@ Widget appBar(
           RouterF.of(context).push(() => FavoritiesView());
         },
       ),
-      isCart == false
-          ? IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              onPressed: onTap,
-            )
-          : FlatButton(
-              child: ValueListenableBuilder(
-                valueListenable: Hive.box(EndBoxs.CartItem).listenable(),
-                builder:
-                    (BuildContext context, Box<dynamic> value, Widget child) {
-                  return Badge(
-                    badgeColor: kcPrimaryColor,
-                    badgeContent: Text(
-                      "${value.length}",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    child: Image.asset(
-                      "assets/icons/shopping-cart.png",
-                      width: 24,
-                      height: 24,
-                      color: Colors.black,
-                    ),
-                  );
-                },
-              ),
-              onPressed: () {},
-            ),
+      if (isCart == true)
+        FlatButton(
+          child: ValueListenableBuilder(
+            valueListenable: Hive.box(EndBoxs.CartItem).listenable(),
+            builder: (BuildContext context, Box<dynamic> value, Widget child) {
+              return Badge(
+                badgeColor: kcPrimaryColor,
+                badgeContent: Text(
+                  "${value.length}",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                child: Image.asset(
+                  "assets/icons/shopping-cart.png",
+                  width: 24,
+                  height: 24,
+                  color: Colors.black,
+                ),
+              );
+            },
+          ),
+          onPressed: () {},
+        ),
     ],
   );
 }

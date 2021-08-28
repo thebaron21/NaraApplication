@@ -54,22 +54,21 @@ class _FavoritiesViewState extends State<FavoritiesView> {
           // return Text(model.name);
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 2 / 5,
-          crossAxisSpacing: 2 / 2,
+          childAspectRatio: 3 / 5.5,
+          crossAxisSpacing: 2 / 8,
           crossAxisCount: 2,
-          mainAxisSpacing: 2 / 5,
+          mainAxisSpacing: 2 / 4,
         ),
       );
     }
   }
 
   _cardProduct(ProductModel model, Size size, int index) {
-    print(model.image);
     String descf = model.desc;
     if (model.desc.length >= 20) descf = model.desc.substring(0, 20) + " ...";
     return Container(
       // height: size.height * 0.2,
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(13),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
@@ -93,9 +92,10 @@ class _FavoritiesViewState extends State<FavoritiesView> {
                     BoxShadow(
                         blurRadius: 10, color: Colors.grey.withOpacity(0.2))
                   ],
-                  
                 ),
-                child: WidgetNetWork(image: model.image,),
+                child: WidgetNetWork(
+                  image: model.image,
+                ),
               ),
               IconButton(
                 icon: Icon(Icons.close),

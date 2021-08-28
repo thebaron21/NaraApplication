@@ -47,7 +47,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
       iconTheme: IconThemeData(color: Colors.black),
       backgroundColor: Colors.white,
       title: Text(
-        AppLocale.of(context).getTranslated("brand"),
+        widget.category.name,
         style: TextStyle(
           color: Colors.black,
         ),
@@ -89,8 +89,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            WidgetCategoryView.producCategory(
-                widget.category.id.toString(), () => setState(() {}), size, name),
+            WidgetCategoryView.producCategory(widget.category.id.toString(),
+                () => setState(() {}), size, name),
           ],
         ),
       ),

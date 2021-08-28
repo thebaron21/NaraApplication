@@ -9,12 +9,17 @@ class TopCategoriesHome {
       stream: ResCategoryProductCelebrities.categories().asStream(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.hasData) {
+          print(snapshot.data);
           return ModelCategoriesList.topCategory(
               size, snapshot.data.categories, context);
         } else if (snapshot.hasError) {
           return WidgetFuture.error(context, superReload);
         } else {
-          return WidgetFuture.loading();
+          return Container(
+            width: size.width,
+            height: size.height * 0.43,
+            child: WidgetFuture.loading(),
+          );
         }
       },
     );

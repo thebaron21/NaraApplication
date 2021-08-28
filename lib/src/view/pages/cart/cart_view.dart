@@ -65,11 +65,11 @@ class _CartViewState extends State<CartView> {
       // drawer:
       backgroundColor: Colors.grey[200],
       appBar: appBar(
-        context:context,
-        title:AppLocale.of(context).getTranslated("my_bag"),
-        isCart:false,
+        context: context,
+        title: AppLocale.of(context).getTranslated("my_bag"),
+        isCart: false,
       ),
-      
+
       body: ValueListenableBuilder(
         valueListenable: Hive.box(EndBoxs.CartItem).listenable(),
         builder: (BuildContext context, Box value, Widget child) {
@@ -162,6 +162,7 @@ class _CartViewState extends State<CartView> {
       }
 
       var data = await ResOrderCart.setCart(map: CartFunction.init(orders));
+      print(data);
       RouterF.of(context).push(() => AddressView());
     }
     setState(() => isLoading = false);

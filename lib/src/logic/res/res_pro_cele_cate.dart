@@ -21,7 +21,7 @@ class ResCategoryProductCelebrities {
         return HeadleCategoriesProductBrandCelebrities.categories(data);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
@@ -41,7 +41,7 @@ class ResCategoryProductCelebrities {
         return HeadleCategoriesProductBrandCelebrities.categories(data);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
@@ -61,7 +61,7 @@ class ResCategoryProductCelebrities {
         return HeadleCategoriesProductBrandCelebrities.celebrities(data);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
@@ -81,7 +81,7 @@ class ResCategoryProductCelebrities {
         return HeadleCategoriesProductBrandCelebrities.celebrities(data);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
@@ -109,7 +109,7 @@ class ResCategoryProductCelebrities {
         return HeadleCategoriesProductBrandCelebrities.products(data);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
@@ -129,7 +129,7 @@ class ResCategoryProductCelebrities {
         return HeadleCategoriesProductBrandCelebrities.brands(data);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
@@ -147,7 +147,7 @@ class ResCategoryProductCelebrities {
             data["data"]);
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 }

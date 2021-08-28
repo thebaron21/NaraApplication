@@ -13,7 +13,11 @@ class ProductHome {
         } else if (snapshot.hasError) {
           return WidgetFuture.error(context, superReload);
         } else {
-          return WidgetFuture.loading();
+          return Container(
+      width: size.width,
+      height: size.height * 0.34,
+            child: WidgetFuture.loading(),
+          );
         }
       },
     );

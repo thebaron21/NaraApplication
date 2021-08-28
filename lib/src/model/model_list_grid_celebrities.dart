@@ -34,7 +34,8 @@ class ModelListGridCelebrities {
       onTap: () {
         RouterF.of(context).push(
           () => CategoriesProductView(
-            category: ModelCategory(id: data.id, image: data.image),
+            category:
+                ModelCategory(id: data.id, image: data.image, name: data.name),
           ),
         );
       },

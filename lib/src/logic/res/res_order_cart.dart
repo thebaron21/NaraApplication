@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:myapp3/src/logic/repository/my_order_repository.dart';
 import '../config/end_boxs.dart';
 import '../config/end_point.dart';
 import '../function/res_function.dart';
@@ -25,9 +26,10 @@ class ResOrderCart {
         url: EndPoint.myOrdersUrl,
         headers: ResFunction.withToken(_token),
       );
-      return data;
+      print(data);
+      return RespoitoryMyOrder.fromJson(data["data"]["data"]);
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 

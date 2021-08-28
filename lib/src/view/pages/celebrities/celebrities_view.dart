@@ -7,6 +7,7 @@ import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
 import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/view/pages/favorites/favorities_view.dart';
+import 'package:myapp3/src/view/widgets/widget_drawer.dart';
 
 import 'widgets/widget_celebrities.dart';
 
@@ -43,7 +44,7 @@ class _CelebritiesViewState extends State<CelebritiesView> {
       iconTheme: IconThemeData(color: Colors.black),
       backgroundColor: Colors.white,
       title: Text(
-        AppLocale.of(context).getTranslated("brand"),
+        "المشاهير",
         style: TextStyle(
           color: Colors.black,
         ),
@@ -69,7 +70,7 @@ class _CelebritiesViewState extends State<CelebritiesView> {
             },
           ),
           onPressed: () {
-             RouterF.of(context).push(() => FavoritiesView());
+            RouterF.of(context).push(() => FavoritiesView());
           },
         ),
         searchBar.getSearchAction(context),
@@ -81,6 +82,7 @@ class _CelebritiesViewState extends State<CelebritiesView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+       drawer: WidgetDrawer.drawer(context),
       appBar: searchBar.build(context),
       body: WidgetCelebritiesView.celebritiesFuture(
           size, () => setState(() {}), name),

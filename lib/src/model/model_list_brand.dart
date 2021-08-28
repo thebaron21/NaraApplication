@@ -6,8 +6,10 @@ import '../logic/model/model_brand.dart';
 import '../view/widgets/widget_network_image.dart';
 
 class ModelListBarnd {
-  static Widget twoBarnd(List brands, Size size) {
+  static Widget twoBarnd(List brands, Size size, context) {
     Random _random = Random();
+    int index = _random.nextInt(brands.length);
+    int index2 = _random.nextInt(brands.length);
     return Container(
       height: size.height * 0.23,
       width: double.infinity,
@@ -18,13 +20,21 @@ class ModelListBarnd {
             children: [
               barand(
                 size: size,
-                image: brands[_random.nextInt(brands.length)].image,
-                onTap: () {},
+                image: brands[index].image,
+                onTap: () {
+                  RouterF.of(context).push(() => BrandProductView(
+                        brand: brands[index],
+                      ));
+                },
               ),
               barand(
                 size: size,
-                image: brands[_random.nextInt(brands.length)].image,
-                onTap: () {},
+                image: brands[index2].image,
+                onTap: () {
+                  RouterF.of(context).push(() => BrandProductView(
+                        brand: brands[index2],
+                      ));
+                },
               )
             ]),
       ),

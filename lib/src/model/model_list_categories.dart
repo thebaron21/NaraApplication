@@ -23,7 +23,7 @@ class ModelCategoriesList {
           size: size,
           onTap: () {
             RouterF.of(context)
-                .push(() => CategoriesProductView(category: categories[index] ));
+                .push(() => CategoriesProductView(category: categories[index]));
           },
         );
       },
@@ -154,7 +154,10 @@ class ModelCategoriesList {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      RouterF.of(context).push(
+                          () => CategoriesProductView(category: category));
+                    },
                     color: kcPrimaryColor,
                     child: Text(
                       AppLocale.of(context).getTranslated("shop_now"),

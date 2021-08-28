@@ -3,8 +3,9 @@ import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/function/home_function.dart';
 import 'package:myapp3/src/view/app_nara.dart';
 import 'package:myapp3/src/view/pages/auth/profile_page.dart';
-import 'package:myapp3/views/pages/drawer/call_us_page.dart';
-import 'package:myapp3/views/pages/drawer/chat_with_us_page.dart';
+import 'package:myapp3/src/view/pages/message/message_view.dart';
+import 'package:myapp3/src/view/pages/message/problem_view.dart';
+import 'package:myapp3/src/view/pages/order/order_view.dart';
 import 'package:myapp3/views/pages/drawer/order_page.dart';
 
 class WidgetDrawer {
@@ -116,23 +117,15 @@ class WidgetDrawer {
       ),
       MeunListDrawer(
         text: AppLocale.of(context).getTranslated("call_us"),
-        onTap: () => CallUsPage(),
+        onTap: () => CallUsView(),
       ),
       MeunListDrawer(
         text: AppLocale.of(context).getTranslated("my_order"),
-        onTap: () => OrderPage(),
+        onTap: () => OrderView(),
       ),
-      MeunListDrawer(
-        text: AppLocale.of(context).getTranslated("change_lang"),
-        onTap: () => LanguagePage(),
-      ),
-      // MeunListDrawer(
-      //   text: AppLocale.of(context).getTranslated("quatioins"),
-      //   onTap: () => QuationsPage(),
-      // ),
       MeunListDrawer(
         text: AppLocale.of(context).getTranslated("chat_with_us"),
-        onTap: () => ChatWithUsPage(),
+        onTap: () => ChatWithUsView(),
       ),
     ];
   }

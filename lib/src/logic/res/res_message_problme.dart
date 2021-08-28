@@ -47,8 +47,9 @@ class ResMessagProblme {
           "comment": content,
         },
       );
+      return data;
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 class ResFunction {
@@ -8,8 +10,31 @@ class ResFunction {
       // print(_response.data);
       if (_response.statusCode == 200) return _response.data;
       if (_response.statusCode == 202) return _response.data;
+    } on SocketException catch (e) {
+      return e;
     } catch (e) {
-      throw e;
+      if (e is DioError) {
+        switch (e.type) {
+          case DioErrorType.connectTimeout:
+            throw "Error";
+            break;
+          case DioErrorType.sendTimeout:
+            throw "Error";
+            break;
+          case DioErrorType.receiveTimeout:
+            throw "Error";
+            break;
+          case DioErrorType.response:
+            throw "Error";
+            break;
+          case DioErrorType.cancel:
+            throw "Error";
+            break;
+          case DioErrorType.other:
+            throw "Error";
+            break;
+        }
+      }
     }
   }
 
