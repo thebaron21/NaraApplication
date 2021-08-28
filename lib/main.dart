@@ -91,7 +91,12 @@ class _MyAppState extends State<MyApp> {
               future: Hive.openBox(EndBoxs.FavoritiesBox),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return AppNara();
+                  return FutureBuilder(
+                    future: Future.delayed(Duration(seconds: 7)),
+                    builder: (context, snapshot) {
+                      return snapshot.connectionState == ConnectionState.waiting ? Splash(): AppNara();
+                    }
+                  );
                 } else {
                   return Scaffold();
                 }
