@@ -28,7 +28,7 @@ class ResAddress {
       );
       return data;
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 

@@ -128,4 +128,21 @@ class ResAuth {
       return e;
     }
   }
+
+  static Future loginFaceGoogle({int email}) async {
+    try {
+      var data = await ResFunction.postRes(
+        url: EndPoint.fbLogin,
+        body: {
+          "fb_id": email,
+        },
+        headers: ResFunction.withOutToken(),
+      );
+      print(data);
+      return data;
+    } catch (e) {
+      print(e);
+      return e;
+    }
+  }
 }

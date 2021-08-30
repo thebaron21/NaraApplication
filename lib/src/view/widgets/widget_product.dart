@@ -43,7 +43,7 @@ class _WidgetProductState extends State<WidgetProduct> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: size.height * 0.25,
+            height: size.height * 0.2,
             width: size.width * 0.49,
             child: WidgetNetWork(
               image: widget.model.image,

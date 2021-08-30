@@ -1,5 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/logic/res/res_auth.dart';
@@ -92,11 +95,26 @@ class _LoginViewState extends State<LoginView> {
                       Buttons.Facebook,
                       text: AppLocale.of(context)
                           .getTranslated("sign_in_with_facebook"),
-                      onPressed: () async {},
+                      onPressed: () async {
+                        FacebookAuth _account = FacebookAuth.instance;
+                        var data = await _account.login();
+                        print( data.message );
+                      },
                     ),
                     SignInButton(
                       Buttons.Google,
-                      onPressed: () async {},
+                      onPressed: () async {
+                        var data = await ResAuth.loginFaceGoogle(
+                            email: 68769871576586);
+                        print(data);
+                        if (data is DioError) {
+                          if (data.response.statusCode == 422) {
+                            print(data.response.data);
+                          } else if (data.response.statusCode == 400) {
+                            print(data.response.data);
+                          }
+                        }
+                      },
                       text: AppLocale.of(context)
                           .getTranslated("sign_in_with_google"),
                     ),

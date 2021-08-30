@@ -22,7 +22,7 @@ class ModelListGridProduct {
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 3 / 5,
+          childAspectRatio: 3 / 5.5,
           mainAxisSpacing: 5,
         ),
       ),

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
@@ -140,16 +141,27 @@ class _AddressViewState extends State<AddressView> {
 
   void onTap() async {
     setState(() => isLoading = true);
-    var data = await ResAddress.setAddrss(
-      name: username.text,
-      city: city.text,
-      address: address.text,
-      street: street.text,
-      phone: phone.text,
-      state: state.text,
-    );
-    if (data["statusCode"] == 200) {
-      RouterF.of(context).push(() => AddressDetailsView());
+    try {
+      var data = await ResAddress.setAddrss(
+        name: username.text,
+        city: city.text,
+        address: address.text,
+        street: street.text,
+        phone: phone.text,
+        state: state.text,
+      );
+      if (data["statusCode"] == 200) {
+        RouterF.of(context).push(() => AddressDetailsView());
+      }
+      setState(() => isLoading = false);
+    } catch (e) {
+      setState(() => isLoading = false);
+      if (e is DioError) {
+        if (e.response.statusCode == 422) {
+          RouterF.of(context)
+              .message("خطأ", e.response.data["errors"]["phone"][0].toString());
+        }
+      }
     }
     setState(() => isLoading = false);
   }

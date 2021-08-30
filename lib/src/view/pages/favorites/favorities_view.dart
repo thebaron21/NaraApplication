@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
+import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/logic/model/product_model.dart';
 import 'package:myapp3/src/view/widgets/widget_network_image.dart';
+import 'package:myapp3/src/view/widgets/widget_product._details.dart';
 
 class FavoritiesView extends StatefulWidget {
   const FavoritiesView({Key key}) : super(key: key);
@@ -122,7 +124,7 @@ class _FavoritiesViewState extends State<FavoritiesView> {
             alignment: Alignment.bottomCenter,
             child: InkWell(
               onTap: () {
-                // Getx.of(context).toGet(ProductPage(model: model));
+                RouterF.of(context).push( () => ProductDetailsView(model: model) );
               },
               child: Container(
                 height: size.height * 0.06,

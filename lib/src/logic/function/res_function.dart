@@ -42,7 +42,7 @@ class ResFunction {
     try {
       var _response =
           await _dio.post(url, data: body, options: Options(headers: headers));
-
+      print(_response.data);
       if (_response.statusCode == 200) return _response.data;
       if (_response.statusCode == 202) return _response.data;
       if (_response.statusCode == 422) return _response.data;
@@ -52,6 +52,8 @@ class ResFunction {
         if (e.response.statusCode == 422) {
           throw e;
         } else if (e.response.statusCode == 406) {
+          throw e;
+        } else if (e.response.statusCode == 400) {
           throw e;
         }
       } else {

@@ -226,9 +226,10 @@ class _PaymentViewState extends State<PaymentView> {
         addressId: idAddress,
         paymentType: groupValue,
       );
-      print(data);
       if (data != null) {
+        RouterF.of(context).message("نجاح", data["data"]);
         RouterF.of(context).push(() => AppNara());
+        await Hive.box(EndBoxs.CartItem).clear();
       } else {
         RouterF.of(context).message("خطأ", "خطأ غير معروف");
       }
