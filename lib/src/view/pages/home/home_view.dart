@@ -48,14 +48,14 @@ class _HomeViewState extends State<HomeView> {
               },
             ),
             ProductHome.productsFuture(size, () => setState(() {})),
-            WidgetFuture.row(
-              text: "المنتجات ",
-              viewAll: "عرض",
-              onTap: () {
-                RouterF.of(context).push(() => ProductsView());
-              },
-            ),
-            ProductHome.productsFuture(size, () => setState(() {})),
+//             WidgetFuture.row(
+//               text: "المنتجات ",
+//               viewAll: "عرض",
+//               onTap: () {
+//                 RouterF.of(context).push(() => ProductsView());
+//               },
+//             ),
+//             ProductHome.productsFuture(size, () => setState(() {})),
             TopCategoriesHome.categories(size, () => setState(() {})),
             TopBrandHome.brands(size, () => setState(() {})),
             CelebritiesHome.celebritiesFuture(size, () => setState(() {})),
