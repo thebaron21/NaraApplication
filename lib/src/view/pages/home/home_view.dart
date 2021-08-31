@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
                 RouterF.of(context).push(() => ProductsView());
               },
             ),
-            CelebritiesHome.celebritiesFuture(size, () => setState(() {})),
+            ProductHome.productsFuture(size, () => setState(() {})),
             WidgetFuture.row(
               text: "المنتجات ",
               viewAll: "عرض",
