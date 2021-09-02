@@ -111,7 +111,7 @@ Size size = MediaQuery.of(context).size;
         width: size.width,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/splash/main.gif"),
+            image: AssetImage("assets/images/main.gif"),
             fit: BoxFit.fill,
           ),
         ),
