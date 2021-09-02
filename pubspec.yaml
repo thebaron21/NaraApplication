@@ -57,6 +57,7 @@ dependencies:
   dio:
   url_launcher: 
   google_sign_in: ^5.0.7
+  country_list:
 
     
 dev_dependencies:
