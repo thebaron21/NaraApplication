@@ -178,7 +178,7 @@ class _AddressViewState extends State<AddressView> {
         address: address.text,
         street: street.text,
         phone: phone.text,
-        state: state.text,
+        state: dropdownvalue,
       );
       if (data["statusCode"] == 200) {
         RouterF.of(context).push(() => AddressDetailsView());
