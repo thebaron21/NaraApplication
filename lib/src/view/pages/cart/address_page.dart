@@ -8,6 +8,7 @@ import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/logic/res/res_address.dart';
 import 'package:myapp3/src/view/pages/auth/widgets/box_button.dart';
 import 'package:myapp3/src/view/pages/auth/widgets/box_input_field.dart';
+import 'package:country_list/country_list.dart';
 
 import 'details_address.dart';
 
@@ -25,6 +26,7 @@ class _AddressViewState extends State<AddressView> {
   TextEditingController phone = TextEditingController();
   TextEditingController city = TextEditingController();
   TextEditingController state = TextEditingController();
+  String dropdownvalue = '';
   TextEditingController street = TextEditingController();
 
   /// [Widget] of Page
@@ -103,10 +105,38 @@ class _AddressViewState extends State<AddressView> {
                   line,
 
                   ///[State]
-                  BoxInputField(
-                    controller: state,
-                    placeholder: AppLocale.of(context).getTranslated("state"),
-                  ),
+//                   BoxInputField(
+//                     controller: state,
+//                     placeholder: AppLocale.of(context).getTranslated("state"),
+//                   ),  EdgeInsets.symmetric(horizontal: 10),
+//                   Container(
+//                    child:ListView.builder(
+//     itemCount: Countries.list.length,
+//     itemBuilder: (_, position) {
+//         Country country = Countries.list[position];
+//         return Text(country.name);
+//     },
+//     ),
+//                   ),
+             DropdownButton(
+                value: dropdownvalue,
+                  icon: Icon(Icons.keyboard_arrow_down),
+
+                  items:Countries.list.map((Country items) {
+                       return DropdownMenuItem(
+                           value: items.name,
+                           child: Text(items.name)
+                       );
+                  }
+                  ).toList(),
+
+                onChanged: (String newValue){
+                  setState(() {
+                    dropdownvalue = newValue;
+                  });
+                },
+
+              ),     
                   line,
                   BoxInputField(
                     controller: street,
