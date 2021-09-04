@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../logic/config/LocaleLang.dart';
 import '../../logic/config/end_boxs.dart';

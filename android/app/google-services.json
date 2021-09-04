@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "803717229397",
+    "project_id": "shoppingfood-f71d2",
+    "storage_bucket": "shoppingfood-f71d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803717229397:android:4760519ab6c2fca782dddc",
+        "android_client_info": {
+          "package_name": "com.example.cart_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803717229397-re4tqfkk2vlan7sce2nejqgk6lck9vd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDSW1WN87A3J3Bcu_JwRbXO2r29h5r4yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803717229397-re4tqfkk2vlan7sce2nejqgk6lck9vd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803717229397:android:9dfc05b6f8f82ec982dddc",
+        "android_client_info": {
+          "package_name": "com.mobilityhub.nara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803717229397-muog7cra5kfabrbaniqnodk2le602maf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobilityhub.nara",
+            "certificate_hash": "d23674921d73a3b29e35bac73b765c30aae21eca"
+          }
+        },
+        {
+          "client_id": "803717229397-re4tqfkk2vlan7sce2nejqgk6lck9vd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDSW1WN87A3J3Bcu_JwRbXO2r29h5r4yM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803717229397-re4tqfkk2vlan7sce2nejqgk6lck9vd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

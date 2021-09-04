@@ -5,6 +5,7 @@ class EndPoint {
   static const String registerUrl = baseUrl + 'register';
   static const String forgetPassUrl = baseUrl + 'forget-password';
   static const String fbLogin = baseUrl + 'fb-login';
+  static const String googleLogin = baseUrl + "google-login";
 
   static const String resetPassUrl = baseUrl + 'reset-password';
   static const String getProfileUrl = baseUrl + 'profile';

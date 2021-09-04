@@ -6,7 +6,6 @@ import 'package:myapp3/src/view/pages/auth/profile_page.dart';
 import 'package:myapp3/src/view/pages/message/message_view.dart';
 import 'package:myapp3/src/view/pages/message/problem_view.dart';
 import 'package:myapp3/src/view/pages/order/order_view.dart';
-import 'package:myapp3/views/pages/drawer/order_page.dart';
 
 class WidgetDrawer {
   static Widget drawer(context) {

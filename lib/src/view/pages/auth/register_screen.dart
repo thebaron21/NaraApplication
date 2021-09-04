@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive/hive.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
@@ -177,12 +179,7 @@ class _RegisterViewState extends State<RegisterView> {
                 alignment: Alignment.center,
                 child: SignInButton(
                   Buttons.Facebook,
-                  onPressed: () async {
-                    // final fbLogin = FacebookLogin();
-                    // var result = await fbLogin.logIn(["email"]);
-                    // final token = result.accessToken.token;
-                    // print("Token :   , Result : ");
-                  },
+                  onPressed: onFacebook,
                   text: AppLocale.of(context)
                       .getTranslated("sign_up_with_facebook"),
                 ),
@@ -191,7 +188,7 @@ class _RegisterViewState extends State<RegisterView> {
                 alignment: Alignment.center,
                 child: SignInButton(
                   Buttons.Google,
-                  onPressed: () {},
+                  onPressed: onGoogle,
                   text: AppLocale.of(context)
                       .getTranslated("sign_up_with_google"),
                 ),
@@ -229,5 +226,66 @@ class _RegisterViewState extends State<RegisterView> {
     } else {
       RouterF.of(context).message("خطأ", "كلمة السر غير متطابقة");
     }
+  }
+
+
+  onGoogle() async {
+    try {
+      setState(() => isLoading = true);
+      // final FirebaseAuth _auth = FirebaseAuth.instance;
+      final GoogleSignIn _googleSignIn = GoogleSignIn();
+      print("Google Sign IN ${await _googleSignIn.isSignedIn()}");
+      GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
+      GoogleSignInAuthentication d = await googleSignInAccount.authentication;
+
+      print("Email : ${d.idToken}");
+      print("ID: ${googleSignInAccount.id }");
+      print("DisplayName: ${googleSignInAccount.displayName}");
+      print("Email: ${googleSignInAccount.email}");
+      var data = await ResAuth.register(
+        name: googleSignInAccount.displayName,
+        email: googleSignInAccount.email, password: googleSignInAccount.id.toString());
+      if (data["status"] == true) {
+        await Hive.box(EndBoxs.NaraApp).put("token", data["token"]);
+        RouterF.of(context).push(() => AppNara(init: Nav.HOME));
+      } else {
+        RouterF.of(context).message("خطأ", data["errors"].toString());
+      }
+      setState(() => isLoading = false);
+    } catch (e) {
+      setState(() => isLoading = false);
+      throw e;
+    }
+  }
+
+  onFacebook()async{
+     setState(() => isLoading = true);
+    FacebookLogin _facebookLogin = FacebookLogin();
+    FacebookLoginResult login = await _facebookLogin.logIn(permissions: [
+      FacebookPermission.email,
+      FacebookPermission.publicProfile,
+      FacebookPermission.userLikes
+    ]);
+    switch (login.status) {
+      case FacebookLoginStatus.success:
+        var data = await ResAuth.loginFB(email: login.accessToken.userId);
+         if (data["status"] == true) {
+        Hive.box(EndBoxs.NaraApp).put("token", data["token"]);
+        RouterF.of(context).push(() => AppNara(init: Nav.HOME));
+      } else {
+        RouterF.of(context).message("خطأ", data["errors"].toString());
+      }
+      setState(() => isLoading = false);
+        break;
+      case FacebookLoginStatus.cancel:
+        RouterF.of(context).message("خطأ", "خطأ في تسجيل دخول");
+        break;
+      case FacebookLoginStatus.error:
+        RouterF.of(context).message("خطأ", "خطأ في تسجيل دخول");
+        break;
+    }
+
+    setState(() => isLoading = false);
+  
   }
 }

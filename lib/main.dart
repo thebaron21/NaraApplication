@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as p;
-
 import 'src/view/app_nara.dart';
 import 'src/logic/config/LocaleLang.dart';
 import 'src/logic/config/end_boxs.dart';
@@ -80,11 +79,13 @@ class _MyAppState extends State<MyApp> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return FutureBuilder(
-                    future: Future.delayed(Duration(seconds: 7)),
-                    builder: (context, snapshot) {
-                      return snapshot.connectionState == ConnectionState.waiting ? Splash(): AppNara();
-                    }
-                  );
+                      future: Future.delayed(Duration(seconds: 7)),
+                      builder: (context, snapshot) {
+                        return snapshot.connectionState ==
+                                ConnectionState.waiting
+                            ? Splash()
+                            : AppNara();
+                      });
                 } else {
                   return Scaffold();
                 }
@@ -96,15 +97,13 @@ class _MyAppState extends State<MyApp> {
         },
       ),
     );
-  
   }
 }
-
 
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         height: size.height,
@@ -115,7 +114,6 @@ Size size = MediaQuery.of(context).size;
             fit: BoxFit.fill,
           ),
         ),
-          
       ),
     );
   }

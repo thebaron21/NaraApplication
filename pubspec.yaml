@@ -43,22 +43,22 @@ dependencies:
   rxdart:
   flutter_otp_text_field: 
   page_indicator: 
-  # flutter_facebook_login: 
-  flutter_facebook_auth: ^3.5.0
-  flutter_launcher_icons: ^0.9.1
-  hive: ^2.0.4
+  firebase_auth: 
+  flutter_launcher_icons: 
+  hive: 
   hive_flutter:
-  path_provider: ^2.0.2
+  path_provider:
   flutter_cmoon_icons: ^0.1.0
-  video_viewer: ^1.2.5
+  video_viewer: 
   flutter_search_bar:
   webview_flutter:
   bordered_text: ^2.0.0
   dio:
   url_launcher: 
-  google_sign_in: ^5.0.7
+  google_sign_in:
+  flutter_core:
   country_list:
-
+  flutter_login_facebook: 
     
 dev_dependencies:
   flutter_test:

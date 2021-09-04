@@ -1,13 +1,16 @@
-import 'package:dio/dio.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hive/hive.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
+import 'package:myapp3/src/logic/config/end_boxs.dart';
+import 'package:myapp3/src/logic/function/home_function.dart';
 import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/logic/res/res_auth.dart';
+import 'package:myapp3/src/view/app_nara.dart';
 import 'package:myapp3/src/view/widgets/widget_appbar.dart';
-
+import '../../../logic/res/res_auth.dart';
 import 'forgot_password.dart';
 import 'register_screen.dart';
 import 'widgets/box_button.dart';
@@ -95,26 +98,11 @@ class _LoginViewState extends State<LoginView> {
                       Buttons.Facebook,
                       text: AppLocale.of(context)
                           .getTranslated("sign_in_with_facebook"),
-                      onPressed: () async {
-                        FacebookAuth _account = FacebookAuth.instance;
-                        var data = await _account.login();
-                        print( data.message );
-                      },
+                      onPressed: loginFacebook,
                     ),
                     SignInButton(
                       Buttons.Google,
-                      onPressed: () async {
-                        var data = await ResAuth.loginFaceGoogle(
-                            email: 68769871576586);
-                        print(data);
-                        if (data is DioError) {
-                          if (data.response.statusCode == 422) {
-                            print(data.response.data);
-                          } else if (data.response.statusCode == 400) {
-                            print(data.response.data);
-                          }
-                        }
-                      },
+                      onPressed: onGoogle,
                       text: AppLocale.of(context)
                           .getTranslated("sign_in_with_google"),
                     ),
@@ -144,6 +132,68 @@ class _LoginViewState extends State<LoginView> {
   void login() async {
     setState(() => _loading = true);
     var data = await ResAuth.login(email: email.text, password: password.text);
+ if (data["status"] == true) {
+        await Hive.box(EndBoxs.NaraApp).put("token", data["token"]);
+        RouterF.of(context).push(() => AppNara(init: Nav.HOME));
+      } else {
+        RouterF.of(context).message("خطأ", data["errors"].toString());
+      }
+    setState(() => _loading = false);
+  }
+
+  onGoogle() async {
+    try {
+      setState(() => _loading = true);
+      // final FirebaseAuth _auth = FirebaseAuth.instance;
+      final GoogleSignIn _googleSignIn = GoogleSignIn();
+      print("Google Sign IN ${await _googleSignIn.isSignedIn()}");
+      GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
+      GoogleSignInAuthentication d = await googleSignInAccount.authentication;
+
+      print("Email : ${d.idToken}");
+      print("ID: ${googleSignInAccount.id }");
+      print("DisplayName: ${googleSignInAccount.displayName}");
+      print("Email: ${googleSignInAccount.email}");
+      var data = await ResAuth.login(email: googleSignInAccount.email, password: googleSignInAccount.id.toString());
+      if (data["status"] == true) {
+        await Hive.box(EndBoxs.NaraApp).put("token", data["token"]);
+        RouterF.of(context).push(() => AppNara(init: Nav.HOME));
+      } else {
+        RouterF.of(context).message("خطأ", data["errors"].toString());
+      }
+      setState(() => _loading = false);
+    } catch (e) {
+      setState(() => _loading = false);
+      throw e;
+    }
+  }
+
+  loginFacebook() async {
+    setState(() => _loading = true);
+    FacebookLogin _facebookLogin = FacebookLogin();
+    FacebookLoginResult login = await _facebookLogin.logIn(permissions: [
+      FacebookPermission.email,
+      FacebookPermission.publicProfile,
+      FacebookPermission.userLikes
+    ]);
+    switch (login.status) {
+      case FacebookLoginStatus.success:
+        var data = await ResAuth.loginFB(email: login.accessToken.userId);
+         if (data["status"] == true) {
+        Hive.box(EndBoxs.NaraApp).put("token", data["token"]);
+        RouterF.of(context).push(() => AppNara(init: Nav.HOME));
+      } else {
+        RouterF.of(context).message("خطأ", data["errors"].toString());
+      }
+      setState(() => _loading = false);
+        break;
+      case FacebookLoginStatus.cancel:
+        RouterF.of(context).message("خطأ", "خطأ في تسجيل دخول");
+        break;
+      case FacebookLoginStatus.error:
+        RouterF.of(context).message("خطأ", "خطأ في تسجيل دخول");
+        break;
+    }
 
     setState(() => _loading = false);
   }

@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp3/src/logic/handling/handle_auth.dart';
 import '../config/end_boxs.dart';
 import '../config/end_point.dart';
 import '../function/res_function.dart';
+import '../handling/handle_auth.dart';
 
 class ResAuth {
   static String _token = Hive.box(EndBoxs.NaraApp).get("token");
@@ -129,7 +130,7 @@ class ResAuth {
     }
   }
 
-  static Future loginFaceGoogle({int email}) async {
+  static Future loginFB({String email}) async {
     try {
       var data = await ResFunction.postRes(
         url: EndPoint.fbLogin,
@@ -139,9 +140,23 @@ class ResAuth {
         headers: ResFunction.withOutToken(),
       );
       print(data);
-      return data;
+      return HandleAuth.login(data);
     } catch (e) {
       print(e);
+      return e;
+    }
+  }
+
+  static Future loginGoogle({String accessToken}) async {
+    try {
+      var data = await ResFunction.postRes(
+          url: EndPoint.googleLogin,
+          headers: ResFunction.withOutToken(),
+          body: {
+            "go_id": accessToken,
+          });
+      return HandleAuth.login(data);
+    } catch (e) {
       return e;
     }
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive/hive.dart';
-import 'package:myapp3/core/model/user_model.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
 import 'package:myapp3/src/logic/function/home_function.dart';
@@ -36,6 +37,17 @@ class WidgetProfile {
               child: FlatButton(
                 onPressed: () async {
                   await Hive.box(EndBoxs.NaraApp).delete("token");
+                  FacebookLogin _login = FacebookLogin();
+                  bool isLogin = await _login.isLoggedIn;
+                  if (isLogin == true) {
+                    await _login.logOut();
+                  }
+                  GoogleSignIn _googleSignIn = GoogleSignIn();
+                  bool isSignIn = await _googleSignIn.isSignedIn();
+                  if (isSignIn == true) {
+                    await _googleSignIn.signOut();
+                    await _googleSignIn.disconnect();
+                  }
                   RouterF.of(context).put(() => AppNara(init: Nav.HOME));
                 },
                 child: Text(
@@ -69,8 +81,8 @@ class WidgetProfile {
               child: FlatButton(
                 onPressed: () {
                   RouterF.of(context).push(() => EidtProfileView(
-                    user: user,
-                  ));
+                        user: user,
+                      ));
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

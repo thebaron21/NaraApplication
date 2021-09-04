@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp3/core/repoitorites/my_order_repository.dart';
-import 'package:myapp3/core/response/order_response.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/pallete.dart';
 import 'package:myapp3/src/logic/model/model_order.dart';

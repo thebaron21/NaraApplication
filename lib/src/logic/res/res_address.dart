@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../config/end_boxs.dart';
 import '../config/end_point.dart';

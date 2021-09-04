@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:myapp3/core/model/address_model.dart';
+import 'package:hive/hive.dart';
 import 'package:myapp3/src/logic/config/LocaleLang.dart';
 import 'package:myapp3/src/logic/config/end_boxs.dart';
-import 'package:myapp3/src/logic/config/pallete.dart';
+
 import 'package:myapp3/src/logic/function/router_function.dart';
-import 'package:myapp3/src/logic/res/res_address.dart';
+
 import 'package:myapp3/src/view/pages/auth/widgets/box_button.dart';
-import 'package:myapp3/src/view/widgets/widget_future.dart';
+
 
 import 'payment_view.dart';
 import 'widgets/widget_details.dart';

@@ -15,23 +15,24 @@ class ResFunction {
     } catch (e) {
       if (e is DioError) {
         switch (e.type) {
-          case DioErrorType.connectTimeout:
-            throw "Error";
+         
+          case DioErrorType.CONNECT_TIMEOUT:
+            throw "error";
             break;
-          case DioErrorType.sendTimeout:
-            throw "Error";
+          case DioErrorType.SEND_TIMEOUT:
+            throw "error";
             break;
-          case DioErrorType.receiveTimeout:
-            throw "Error";
+          case DioErrorType.RECEIVE_TIMEOUT:
+            throw "error";
             break;
-          case DioErrorType.response:
-            throw "Error";
+          case DioErrorType.RESPONSE:
+            throw "error";
             break;
-          case DioErrorType.cancel:
-            throw "Error";
+          case DioErrorType.CANCEL:
+            throw "error";
             break;
-          case DioErrorType.other:
-            throw "Error";
+          case DioErrorType.DEFAULT:
+            throw "error";
             break;
         }
       }

@@ -1,4 +1,4 @@
-import 'package:myapp3/core/model/brand_model.dart';
+
 import 'package:myapp3/src/logic/model/model_brand.dart';
 
 class RepositoryBrand {

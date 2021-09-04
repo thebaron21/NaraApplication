@@ -26,8 +26,11 @@ class _AddressViewState extends State<AddressView> {
   TextEditingController phone = TextEditingController();
   TextEditingController city = TextEditingController();
   TextEditingController state = TextEditingController();
-  String dropdownvalue = '';
+  String dropdownvalue = "Select Country";
   TextEditingController street = TextEditingController();
+  final circularBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(3),
+  );
 
   /// [Widget] of Page
 
@@ -118,25 +121,33 @@ class _AddressViewState extends State<AddressView> {
 //     },
 //     ),
 //                   ),
-             DropdownButton(
-                value: dropdownvalue,
-                  icon: Icon(Icons.keyboard_arrow_down),
-
-                  items:Countries.list.map((Country items) {
-                       return DropdownMenuItem(
-                           value: items.name,
-                           child: Text(items.name)
-                       );
-                  }
-                  ).toList(),
-
-                onChanged: (String newValue){
-                  setState(() {
-                    dropdownvalue = newValue;
-                  });
-                },
-
-              ),     
+                  Container(
+                    // padding: EdgeInsets.symmetric(horizontal: 7),
+                    // width: 300,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(4),
+                      //  border: circularBorder.copyWith(
+                      //   //  borderSide: BorderSide(color: kcLightGreyColor),
+                      //  ),
+                      border: Border.all(
+                        color: Colors.black.withOpacity(0.05),
+                      ),
+                    ),
+                    child: DropdownButton(
+                      value: dropdownvalue,
+                      icon: Icon(Icons.keyboard_arrow_down),
+                      items: Countries.list.map((Country items) {
+                        return DropdownMenuItem(
+                            value: items.name, child: Text(items.name));
+                      }).toList(),
+                      onChanged: (String newValue) {
+                        setState(() {
+                          dropdownvalue = newValue;
+                        });
+                      },
+                    ),
+                  ),
                   line,
                   BoxInputField(
                     controller: street,

@@ -1,11 +1,10 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:myapp3/config/boxs.dart';
-import 'package:myapp3/core/controller/control.dart';
 import 'package:myapp3/src/logic/function/router_function.dart';
 import 'package:myapp3/src/view/app_nara.dart';
-import 'package:myapp3/views/nara_app.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
 
